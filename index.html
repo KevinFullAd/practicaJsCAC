@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="desc-container">
+        <div class="card-container">
+            <div class="box-card box-card-a" data-descuento='.20'>
+                <div class="card card-a">
+                    <div class="card-title">descuento <br> <span>escolar</span></div>
+                    <div class="card-desc">% 80</div>
+                    <div class="card-button">
+                        <label for="boton-a">Seleccionar</label>
+                        <input type="checkbox" class="checkbox" name="escolar" id="boton-a" hidden>
+                    </div>
+                    <div class="card-req">Subir documentacion.</div>
+                    
+                </div>
+            </div>
+            <div class="box-card box-card-b" data-descuento ='.50'>
+                <div class="card card-b active" >
+                    <div class="card-title">descuento<br> <span>Trainee</span></div>
+                    <div class="card-desc">% 50</div>
+                    <div class="card-button">
+                        <label for="boton-b">Seleccionar</label>
+                        <input type="checkbox" class="checkbox" name="trainee" id="boton-b" hidden>
+                    </div>
+                    <div class="card-req">Subir documentacion.</div>
+                    
+                </div>
+            </div>
+            <div class="box-card box-card-c" data-descuento='.85'>
+                <div class="card card-c">
+                    <div class="card-title">descuento<br> <span>Junior</span></div>
+                     
+                        <div class="card-desc">% 15</div>
+                        <div class="card-button">
+                            <label for="boton-c">Seleccionar</label>
+                            <input type="checkbox" class="checkbox" name="junior" id="boton-c" hidden>
+                        </div>
+ 
+                    <div class="card-req">Subir documentacion.</div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="payment-form">
+        
+        <div class="payment-title" style="color:white">
+            <h2>Venta</h2>
+        </div>
+        <div class="payment-subtitle" style="color:white">
+            VALOR DEL TICKET $ 200
+        </div>
+        <form action="">
+            <div class="nombre">
+                <input type="text" name="nombre" id="nombre" oninput="handleInput('nombre')" >
+            </div>
+            <div class="apellido">
+                <input type="text" name="apellido" id="apellido" oninput="handleInput('apellido')">
+            </div>
+            <div class="mail">
+                <input type="text" name="email" id="email" oninput="handleInput('email')">
+            </div>
+
+            <div class="cantidad">
+                <label for="cant">cantidad:</label>
+                <input type="number" name="cant" id="cant" value="1" min="1" max="100" required>
+            </div>
+
+            <div class="total">
+                Total a pagar: <span class="totalNro"></span>
+            </div>
+            <div class="botones">
+                <button class="reset">
+                    borrar
+                </button>
+                <button class="calc">
+                    calcular
+                </button>
+            </div>
+        </form>
+    </div>
+
+</body>
+<script src="script.js"></script>
+</html>

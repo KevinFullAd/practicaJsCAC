@@ -1,0 +1,406 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(0, 0, 0); 
+}
+.desc-container{ 
+    display: flex;
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: auto;  
+    justify-content: center;
+}
+.card-container{ 
+    width: 100%; 
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 120px) ;
+    grid-column-gap:20px ;
+    grid-row-gap: 20px ;
+    padding: 10px;
+}
+
+
+.box-card{  
+    max-width: 300px;   
+    width: 100%;
+    height: 100%; 
+    border-radius: 8px;
+    background-color: rgb(32, 32, 32);
+    position: relative;  
+    transition: opacity 1s ease;
+    overflow: hidden;
+    margin: auto;
+} 
+.box-card-a::before{
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background:linear-gradient(0deg, transparent, #9645ff,#45f3ff,#45f3ff);
+    z-index: 1;
+    animation: animate 5s linear infinite;
+    transform-origin: bottom right; 
+    opacity: 0;
+}
+.box-card-a::after{
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background:linear-gradient(0deg, transparent, #8645ff,#45f3ff,#45f3ff,#45f3ff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 5s linear infinite;
+    animation-delay: -2.5s;
+    opacity: 0;
+}
+
+
+.box-card-b::before{
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 200%;
+    height: 200%; 
+    background:linear-gradient(0deg, transparent, #fff345,#45f3ff,#45f3ff,#45f3ff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 5s linear infinite;
+    opacity: 0;
+}
+.box-card-b::after{
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background:linear-gradient(0deg, transparent, #fff345,#45f3ff,#45f3ff,#45f3ff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 5s linear infinite;
+    animation-delay: -2.5s;
+    opacity: 0;
+}
+
+
+.box-card-c:before{
+    content: '';
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background:linear-gradient(0deg, transparent, #ff45c7,#45f3ff,#45f3ff,#45f3ff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 5s linear infinite; 
+    opacity: 0;
+}
+.box-card-c::after{
+    content: ''; 
+    position: absolute;
+    top: -150%;
+    left: -150%;
+    width: 200%;
+    height: 200%;
+    background:linear-gradient(0deg, transparent, #ff45c7,#45f3ff,#45f3ff,#45f3ff);
+    z-index: 1;
+    transform-origin: bottom right;
+    animation: animate 5s linear infinite;
+    animation-delay: -2.5s;
+    opacity: 0;
+}
+
+.box-card.active-animation::before,
+.box-card.active-animation::after {
+    opacity: 1; 
+} 
+
+@keyframes animate {
+    0%{transform: rotate(0deg);}
+    100%{transform: rotate(360deg);}
+    
+}
+
+.card{
+    inset: 4px;
+    width: calc(100% - 8px);
+    min-width: 200px;
+    height: calc(100% - 8px);
+    position: absolute;
+    background-color: rgb(27, 27, 27);
+    border-radius: 8px;
+    padding: 20px 10px;
+    
+    z-index: 2;  
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-between;
+    color: rgb(219, 219, 219);
+    
+    .card-title{
+        font-size: .8em;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-transform: capitalize;
+        color: rgb(199, 199, 199);
+        width: 40%;
+        height: fit-content;
+        
+        & span{
+            color: white;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+    }
+    .card-desc{
+        height: 2em;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
+        font-weight: lighter;
+        font-size: 1.5em;
+        text-shadow: 2px 2px black;
+        text-align: center; 
+        display: flex;
+        align-items: center;
+    }
+    
+    .card-button label{
+        width: 100%;
+        min-height: 2em;
+        height: 100%;
+        text-align: center; 
+        border: 1px solid gray;
+        border-radius: 4px;
+        margin-bottom: -80px;
+        text-transform: uppercase;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: .8em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        cursor: pointer;
+        
+        transition: background .6s ease, color .5s;
+        
+    }
+    .card-button label:hover{
+        background-color: rgb(255, 255, 255);
+        color: black;
+    }
+    
+    .card-req{ 
+        width: fit-content;
+        font-size: 10px;
+        color: gray; 
+        order: 1;
+    }
+    
+    
+}
+
+.card-a{ 
+    .card-title span{
+        text-shadow:-2px 1px rgb(51, 137, 194), 2px -1px rgb(97, 97, 253);
+    }
+}
+.card-b{
+    .card-title span{
+        text-shadow:-2px 1px rgb(10, 121, 6), 2px -1px rgb(243, 227, 80);
+    }  
+}
+.card-c{  
+    .card-title span{
+        text-shadow:-2px 1px rgb(0, 162, 173), 2px -1px rgb(255, 53, 221);
+    }
+}
+
+@media (min-width:500px) {  
+    
+    .card-container{ 
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 250px; 
+    }
+
+    .card{
+        min-width: unset;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        
+        .card-button{
+            width: 100%;
+        }
+    }
+
+    .box-card::after, 
+    .box-card::before{
+        width: 100%;
+        height: 100%;
+        top: -50%;
+        left: -50%;
+    }
+}
+
+/* Formulario de pago */
+
+.payment-form{
+    width: 100%;
+    height: auto;
+    display: block; 
+    padding: 10px;
+}
+
+.payment-title{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(136, 136, 136);
+}
+
+form{
+    width: 100%; 
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+
+    & label{
+        text-transform: capitalize; 
+    }
+    #nombre{ 
+        width: 100%; 
+        position: relative;
+    }
+    #apellido{
+        width: 100%;
+        position: relative;
+    }
+    #email{
+        width: 100%;
+        position: relative;
+    }
+
+}
+
+ 
+form input{ 
+    padding: 5px;
+    color: rgb(226, 226, 226);
+    border: unset; 
+    background-color: transparent;
+    outline: unset; 
+
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 1em;
+    position: relative;
+} 
+
+.nombre,.apellido,.mail{ 
+    height: 50px;
+    padding-top: 1.3em;
+    margin-bottom: 5px;
+    position: relative;
+    background-color: transparent!important;
+}
+
+.nombre::after, .apellido::after, .mail::after{
+    position: absolute;
+    content: 'hola';
+    color: rgb(218, 218, 218); 
+    bottom: 5px;
+    
+    left: 5px;
+    text-transform: capitalize; 
+    font-size: .9em;
+    transition: bottom .4s ease;
+    pointer-events:none;
+}
+
+.nombre::after{ 
+    content: 'Nombre';
+}
+.apellido::after{ 
+    content: 'apellido';
+}
+.mail::after{ 
+    content: 'mail';
+}
+
+
+.nombre.has-content::after,
+.apellido.has-content::after,
+.mail.has-content::after {
+    color:rgb(90, 90, 90);
+    bottom: 2.3em;
+    font-size: .8em;
+}
+
+.nombre::before, .apellido::before, .mail::before{
+    position: absolute;
+    content: '';
+    width: calc(100% - 10px);
+    height: 1px;
+    background-color: rgb(255, 255, 255, .3);
+    bottom: 5px;
+    left: 5px;
+} 
+
+.total{
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid gray;
+    color: rgb(247, 13, 177);
+    font-weight: bold;
+    padding: 5px;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    margin: 1em 0;
+}
+
+.cantidad label{
+    color: white;
+}
+
+#cant{ 
+    color: #45f3ff;
+}
+
+
+.botones{
+    width: 100%; 
+    display: flex;
+    justify-content: end;
+}
+.reset, .calc{
+    padding: 10px 15px;
+    margin-left: 5px;
+    border-radius: unset;
+    border: unset;
+    outline: unset;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.reset:hover{
+    background-color: #9645ff;    
+    color: white;
+}
+.calc:hover{
+    background-color:#fff345;    
+    color: black;
+}
+
+
+
